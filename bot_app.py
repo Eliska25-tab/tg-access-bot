@@ -47,3 +47,8 @@ async def pay_handler(callback):
 )
 async def run_bot():
     await dp.start_polling(bot)
+from aiogram.filters import Command
+
+@dp.message(Command("gid"))
+async def gid(message: Message):
+    await message.answer(f"chat_id: {message.chat.id}")
